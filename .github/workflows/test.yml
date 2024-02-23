@@ -8,8 +8,7 @@ jobs:
   myjob:
     runs-on: ubuntu-latest
     steps:
-    - name: Install dependencies
-      run: echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+    - uses: actions/checkout@main
     - name: hello
       run: echo "hello"
     - name: Get new commits
