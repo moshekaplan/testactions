@@ -12,7 +12,7 @@ jobs:
     - name: hello
       run: echo "hello"
     - name: Get new commits
-      run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
+      run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '5 minutes ago' | wc -l)" >> $GITHUB_ENV
     - name: Conditional print
       if: ${{ env.NEW_COMMIT_COUNT > 0 }}
       run: echo "conditional print"
