@@ -1,0 +1,20 @@
+name: Coverity Scan
+on:
+  schedule:
+  - cron: '0/10 * * * *'
+  # Support manual execution
+  workflow_dispatch:
+jobs:
+  test:
+    steps:
+    - name: Install dependencies
+      run: echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+    - name: hello
+      run: echo "hello"
+    - name: Get new commits
+      run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
+    - name: Conditional print
+      if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+      run: echo "conditional print"
+    - name: goodbye
+      run: echo "goodbye"
