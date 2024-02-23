@@ -1,11 +1,12 @@
-name: Coverity Scan
+name: MyJob
 on:
   schedule:
   - cron: '0/10 * * * *'
   # Support manual execution
   workflow_dispatch:
 jobs:
-  test:
+  myjob:
+    runs-on: ubuntu-latest
     steps:
     - name: Install dependencies
       run: echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
